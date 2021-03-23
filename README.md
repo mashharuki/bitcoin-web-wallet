@@ -9,7 +9,7 @@ This application is simple web application using bitcore-lib.
 
 ## Setting
 
-$git clone https://github.com/adrenaline0206/bitcoinWebWallet.git
+$git clone https://github.com/mashharuki/bitcoin-web-wallet.git
 
 $cd bitcoinWebWallet
 
