@@ -1,23 +1,35 @@
 version: '2'
+# 各サービスの設定
 services:
+    # dbサービスの設定 
     db:
+        # mysqlのイメージを指定
         image: mysql:5.7
+        # ポート番号指定
         ports:
             - "3306:3306"
+        # ボリュームを指定する。
         volumes:
             - "./bitcoinWallet/db/mysql_init:/docker-entrypoint-initdb.d"
             - "./bitcoinWallet/db/mysql_data:/var/lib/mysql"
+        # 環境変数の設定
         environment:
             MYSQL_ROOT_PASSWORD: mysql
-
+    # webサービスの設定
     web:
+        # nodeのイメージを設定
         image: node:10.7.0
-        build: 
+        # イメージをビルドする。
+        build:
+            # コンテキストルートを指定
             context: ./
+            # 実行するdockerfileを設定
             dockerfile: dockerfile
         tty: true
+        # dbサービスとリンクさせる。
         links: 
             - db
+        # ポート番号を指定する。
         ports: 
             - 80:3000
         
