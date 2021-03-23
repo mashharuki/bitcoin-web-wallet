@@ -8,7 +8,5 @@ WORKDIR /bitcoinWallet
 RUN npm install
 # インストールしたモジュールを実行する。　
 RUN rm -r node_modules/bitcore-explorers/node_modules
-# ポート番号を指定する。
-EXPOSE 8082
 # node プロジェクト実行
 CMD npm start 
