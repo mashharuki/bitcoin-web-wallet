@@ -1,0 +1,6 @@
+{
+  "dependencies": {
+    "bitcore-explorers": "^1.0.1",
+    "bitcore-lib": "^8.25.7"
+  }
+}
