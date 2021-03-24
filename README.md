@@ -4,10 +4,10 @@ bitcoinWebWallet
 
 ## Overview
 
-This application is simple web application using bitcore-lib.
+bitcore-libライブラリを利用したシンプルなビットコインウォレットアプリケーションです。
 
 
-## Setting
+## 必要な設定と実行コマンド
 
 $git clone https://github.com/mashharuki/bitcoin-web-wallet.git
 
@@ -15,16 +15,26 @@ $cd bitcoinWebWallet
 
 $docker-compose up -d
 
+$npm install bitcore-lib
+
+$npm install bitcore-explorers
+
+$node createAddress.js
+
 Access localhost:80
 
 
-## Environment
+## dockerとdocker composeのバージョン状況
 
 ・docker version: 18.09.0
 
 ・docker compose version: 1.6.2
 
+## サーバー
+
+nodeを利用しています。
 
 ## Caution
 
-This wallet is prototype, so security isn't perfect. Th application use testnet. So please don't use Bitcoins of mainnet. Even if you lose Bitcoin by any chance, I'll not guarantee anything. 
+このウォレットアプリケーションは、プロトタイプです。
+セキュリティ上の問題も残るため、本番で利用するためには、監査やチェックが必要です。
