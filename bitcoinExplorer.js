@@ -3,13 +3,13 @@
  */
 
 // ライブラリを読み込んでインスタンス化
-var explorers = require('bitcore-explorers');
+var explorers = require('bitcore-explorers').Insight;
 // テストネットを選択する。
 const network = 'testnet';
 // 検索したいアドレス
 const address = 'mqH6a8Ykc4iPJwp8jR7mnskWbG9i8rwk2D';
 // insightを利用する。
-var insight = new explorers.Insight(network);
+var insight = new explorers(network);
 
 insight.getUnspentUtxos(address, (err, utxos) => {
   // アドレスが見つからなかった場合

@@ -6,7 +6,7 @@
 var fs = require('fs');
 // bitcoreライブラリをインスタンス化する。
 const bitcore = require('bitcore-lib');
-const explorers = require('bitcore-explorers');
+const explorers = require('bitcore-explorers').Insight;
 // ネットワークを指定する。 (本番はメインネットを使用する。)
 const network = 'testnet';
 // const network = 'mainnet';
