@@ -1,3 +1,7 @@
+/**
+ * アカウントを作成するためのファイル
+ */
+
 // bitcoin-libライブラリを読み込む 
 const bitcore = require('bitcore-lib');
 // テストネットを指定する。(本番はメインネット)

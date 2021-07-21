@@ -1,3 +1,8 @@
+/**
+ * メインとなるAPPファイル
+ */
+
+// 必要なモジュールをインポートする。
 const createError = require('http-errors');
 const express = require('express');
 const path = require('path');
@@ -13,7 +18,7 @@ const send = require('./routes/send');
 const app = express();
 const engine = require('ejs-locals');
 
-
+// nodeサーバーについて設定する。
 app.engine('ejs', engine);
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
@@ -22,13 +27,13 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
-app.use(express.static(path.join(__dirname, 'public')));
 app.use(session({
   secret: 'keyboard cat',
   resave: false,
   saveUninitialized: true
 }));
 
+// ルーティングを設定
 app.use('/', setUser, routes);
 app.use('/register', register);
 app.use('/login', login);
@@ -50,5 +55,5 @@ app.use(function(err, req, res, next) {
   res.status(err.status || 500);
   res.render('error');
 });
-
+// 外部に公開する。
 module.exports = app;

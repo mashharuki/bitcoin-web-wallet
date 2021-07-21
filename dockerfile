@@ -6,7 +6,7 @@ ADD bitcoinWallet /bitcoinWallet
 WORKDIR /bitcoinWallet
 # npmをインストールする。
 RUN npm install
-# インストールしたモジュールを実行する。　
+# 不要なモジュールを削除する。
 RUN rm -r node_modules/bitcore-explorers/node_modules
 # node プロジェクト実行
 CMD npm start 

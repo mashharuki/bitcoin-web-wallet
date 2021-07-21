@@ -55,3 +55,13 @@ nodeを利用しています。
    
 5. テーブルの中身を確認する  
    select * from users;
+
+## 実際に作成した秘密鍵とアドレス情報(開発専用！)
+
+   秘密鍵：b7c3a6731b94caf1ee05bc7fbecc825ab13ba93dab31cdb012fb6bd65996204f  
+   アドレス：mqH6a8Ykc4iPJwp8jR7mnskWbG9i8rwk2D  
+
+## テストネット用ビットコイン取得方法
+   
+   次URLにアクセスしてアドレスを入力する。  
+   https://coinfaucet.eu/en/btc-testnet/  

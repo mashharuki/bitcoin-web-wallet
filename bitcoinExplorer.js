@@ -1,16 +1,21 @@
+/**
+ * ビットコインアドレスを検索するためのJsファイル
+ */
+
 // ライブラリを読み込んでインスタンス化
 const explorers = require('bitcore-explorers');
 // テストネットを選択する。
-const network = 'testnet'
+const network = 'testnet';
 // 検索したいアドレス
-const address = 'n2mPdAuoiKK8Tg2PKXeaohq5y6keA1BGdD';
+const address = 'mqH6a8Ykc4iPJwp8jR7mnskWbG9i8rwk2D';
 // insightを利用する。
-const insight = new explorers.Insight(network);
+var insight = new explorers.Insight(network);
 
 insight.getUnspentUtxos(address, (err, utxos) => {
   // アドレスが見つからなかった場合
   if (err) {
-    console.log('UTXO processing error')
+    console.log(err);
+    console.log('UTXO processing error');
   } else {
     // 残高の表示設定
     let balance = utxos.map((v) => {

@@ -1,3 +1,7 @@
+/**
+ * 送金処理を記載したJsファイル
+ */
+
 // fsライブラリをインスタンス化
 var fs = require('fs');
 // bitcoreライブラリをインスタンス化する。
@@ -7,14 +11,14 @@ const explorers = require('bitcore-explorers');
 const network = 'testnet';
 // const network = 'mainnet';
 // addressファイルから秘密鍵要素を取得する。
-const privatekey = fs.readFileSync( "address", "UTF-8").split( '\n' )[0];
+const privatekey = fs.readFileSync("address", "UTF-8").split( '\n' )[0];
 const privateKey = new bitcore.PrivateKey(privatekey);
 // 送信先アドレスを設定する。
 const sendAddress = 'mq8aTnusvudJBr2A4iNmCpQkWS8SQuALGD';
-// 送信元アドレスをaddressファイルから取得する。
+// 送信元アドレスをaddressファイルから取得する。(お釣り送金先アドレス)
 const changeAddress = fs.readFileSync( "address", "UTF-8").split( '\n' )[1];
 // 送金額を設定する。
-const sendAmout = Math.floor(parseFloat("0.0001") * 100000000);
+const sendAmout = Math.floor(parseFloat("0.00001") * 100000000);
 // 送金手数料を設定する。
 const fee = parseFloat(1000);
 // insightを利用する。
@@ -28,6 +32,8 @@ insight.getUnspentUtxos(changeAddress, (err, utxos) => {
     // トランザクションを作成
     // 手数料・残高・送信先アドレス・送金額・送信元アドレス・秘密鍵を使って作成する。
     const transaction = new Transaction().fee(fee).from(utxos).to(sendAddress, sendAmout).change(changeAddress).sign(privateKey);
+    // JSON形式でトランザクションを出力する。
+    console.log("transaction",transaction.toJSON());
     // トランザクションをブロックチェーン上にブロードキャストする。
     insight.broadcast(transaction, (err, returnedTxId) => {
       	if (err) {
