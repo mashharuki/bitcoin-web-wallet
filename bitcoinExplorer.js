@@ -3,7 +3,7 @@
  */
 
 // ライブラリを読み込んでインスタンス化
-const explorers = require('bitcore-explorers');
+var explorers = require('bitcore-explorers');
 // テストネットを選択する。
 const network = 'testnet';
 // 検索したいアドレス
@@ -16,6 +16,7 @@ insight.getUnspentUtxos(address, (err, utxos) => {
   if (err) {
     console.log(err);
     console.log('UTXO processing error');
+    return err;
   } else {
     // 残高の表示設定
     let balance = utxos.map((v) => {
