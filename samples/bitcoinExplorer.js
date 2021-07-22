@@ -11,7 +11,7 @@ const address = 'mqH6a8Ykc4iPJwp8jR7mnskWbG9i8rwk2D';
 // insightを利用する。
 var insight = new explorers(network);
 
-insight.getUnspentUtxos(address, (err, utxos) => {
+insight.getUtxos(address, (err, utxos) => {
   // アドレスが見つからなかった場合
   if (err) {
     console.log(err);

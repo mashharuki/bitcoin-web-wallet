@@ -2,6 +2,7 @@
   "dependencies": {
     "bitcoinjs-lib": "^5.2.0",
     "bitcore-explorers": "^1.0.1",
+    "bitcore-explorers-up": "^1.0.1",
     "bitcore-lib": "^8.25.10",
     "chai": "^4.3.4",
     "mocha": "^9.0.2"
