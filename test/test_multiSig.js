@@ -65,7 +65,7 @@ describe('challenge', function(){
     it('should perform a testnet multisig transaction and refund', function(done){
         // UTXOを取得する。
         getUTXO(address, function(utxo){
-            console.log('UTXO:',utxo);
+           // console.log('UTXO:',utxo);
    
            // test sending a small bit to a p2sh multisig
            // 秘密鍵2つ
@@ -74,24 +74,27 @@ describe('challenge', function(){
            // 公開鍵2つ
            var publicKey1 = privateKey1.publicKey;
            var publicKey2 = privateKey2.publicKey;
-           // スクリプト生成
+           // スクリプト生成(Redeem Script)
+           // スクリプトSigは、 <Sig1><Sig2> Redeem Scriptという形になる。
            var P2SHScript = new bitcore.Script.buildMultisigOut([publicKey1, publicKey2], 1);
-           // スクリプトを出力
-           console.log(P2SHScript.toString());
-           // スクリプトのハッシュ値を生成
+           // スクリプトを出力(Redeem Script)
+           console.log('Redeem Script：', P2SHScript.toString());
+           // P2SHFundを生成(Locking Script)
            var P2SHFund = P2SHScript.toScriptHashOut();
-           // スクリプトを出力
-           console.log(P2SHFund.toString());
+           // P2SHFundを出力(Locking Script)
+           console.log('Locking Script：', P2SHFund.toString());
+           // スクリプト全体を出力
+           console.log('スクリプト全体：', P2SHFund.toString() + ' ' + P2SHScript.toString());
            // トランザクション生成&署名
-           var tx = new bitcore.Transaction()
-             .from(utxo)
-             .to(P2SHFund.toAddress(), 9000)
-             .change(address)
-             .sign(privateKey);
+          var tx = new bitcore.Transaction()
+            .from(utxo)
+            .to(P2SHFund.toAddress(), 9000)
+            .change(address)
+            .sign(privateKey);
 
-           console.log("tx",tx);
-           // ブロードキャストする。
-           broadcast(tx, function(id){
+            console.log("tx",tx);
+            // ブロードキャストする。
+            broadcast(tx, function(id){
                 console.log("funded to",id);
      　　　　　   // 2つ目のトランザクション生成&署名
                 var tx2 = new bitcore.Transaction()
