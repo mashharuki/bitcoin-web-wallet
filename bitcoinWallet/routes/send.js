@@ -44,6 +44,7 @@ router.post('/', function(req, res) {
                 const sendAddress = req.body.send_address;
                 const sendAmount = Math.floor(parseFloat(req.body.send_amount)*100000000);
                 const fee = parseFloat(req.body.fee);
+                // アドレスに紐づくutxoを取得する。
                 insight.getUnspentUtxos(feeAddress, function(err, utxos){
                     if(err){
                         console.log('Bitcoin network connection error');

@@ -1,6 +1,7 @@
 /**
  * DB接続用のJsファイル
  */
+
 const mysql = require('mysql');
 
 const dbConfig = {
