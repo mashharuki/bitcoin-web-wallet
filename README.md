@@ -70,9 +70,12 @@ nodeを利用しています。
     下記URLを参照する。  
     https://www.blockcypher.com/quickstart/
 
+### RESTful API1のリソース
+    https://api.blockcypher.com/v1/btc/main  
+    https://api.blockcypher.com/v1/btc/test3  
+
 ### 下記コマンドが叩けるかチェックする。
     curl https://api.blockcypher.com/v1/btc/main/addrs/1rundZJCMJhUiWQNFS5uT3BvisBuLxkAp?limit=2  
     curl https://api.blockcypher.com/v1/btc/main/txsa40c283de4c26b027a5734ff89ce78ade1220fc313befa107ec6c245c24bdec0  
     curl https://api.blockcypher.com/v1/btc/main/blocks/319957  
 
-    
