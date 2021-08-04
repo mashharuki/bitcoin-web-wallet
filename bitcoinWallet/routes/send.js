@@ -1,3 +1,7 @@
+/**
+ * 送金処理用のコンポーネントファイル
+ */
+
 const express = require('express');
 const router = express.Router();
 const connection = require('../mysqlConnection');

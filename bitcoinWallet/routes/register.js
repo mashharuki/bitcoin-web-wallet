@@ -1,3 +1,7 @@
+/**
+ * ユーザー情報登録用のコンポーネントファイル
+ */
+
 const express = require('express');
 const router = express.Router();
 const moment = require('moment');
@@ -32,7 +36,7 @@ router.post('/', async function(req, res) {
     privatekey = result + cipher.final('base64'); 
 
     const emailExistsQuery = 'SELECT * FROM users WHERE email = ? LIMIT 1';
-    const registerQuery = 'INSERT INTO users (user_name,email, password, created_at, private_key) VALUES(?,?,?,?,?);'
+    const registerQuery = 'INSERT INTO users (user_name,email, password, created_at, private_key) VALUES(?,?,?,?,?)';
 
     connection.query(emailExistsQuery,emails, function(err, email) {
       if (!err) {
