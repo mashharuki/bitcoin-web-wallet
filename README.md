@@ -79,3 +79,6 @@ nodeを利用しています。
     curl https://api.blockcypher.com/v1/btc/main/txsa40c283de4c26b027a5734ff89ce78ade1220fc313befa107ec6c245c24bdec0  
     curl https://api.blockcypher.com/v1/btc/main/blocks/319957  
 
+### UTXO取得用のAPI例
+    https://blockstream.info/testnet/api/address/mqH6a8Ykc4iPJwp8jR7mnskWbG9i8rwk2D/utxo  
+    
