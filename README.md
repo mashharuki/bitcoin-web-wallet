@@ -42,16 +42,16 @@ nodeを利用しています。
 ## 登録したユーザー情報(パスワードや秘密鍵含む)を閲覧するためのコマンド
 
 1. DBコンテナに入る  
-  docker exec -it bulletin_board  bash  
+  docker exec -it bitcoin-web-wallet_db_1 bash  
   
 2. mysqlへ接続する(パスワードは、"mysql")  
   mysql -u root -p  
   
-3. データベース一覧を取得する  
+3. データベース一覧を取得する 
    show databases;
    
-4. usersテーブルを選択する  
-   use users;
+4. データベースを選択する  
+   use bulletin_board;
    
 5. テーブルの中身を確認する  
    select * from users;
