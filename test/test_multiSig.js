@@ -38,7 +38,8 @@ function getUTXO(address, done) {
             process.exit(1);
         }
         // utxos.forEach(function(utxo){console.log(utxo.toJSON());});
-        done(utxos[0]);
+        // console.log(utxos);
+        done(utxos);
     });
  }
  
@@ -86,11 +87,7 @@ describe('challenge', function(){
            // スクリプト全体を出力
            console.log('スクリプト全体：', P2SHFund.toString() + ' ' + P2SHScript.toString());
            // トランザクション生成&署名
-          var tx = new bitcore.Transaction()
-            .from(utxo)
-            .to(P2SHFund.toAddress(), 9000)
-            .change(address)
-            .sign(privateKey);
+           var tx = new bitcore.Transaction().from(utxo).to(P2SHFund.toAddress(), 9000).change(address).sign(privateKey);
 
             console.log("tx",tx);
             // ブロードキャストする。
@@ -100,7 +97,7 @@ describe('challenge', function(){
                 var tx2 = new bitcore.Transaction()
                     .from({txId:id, outputIndex:0, inputIndex:0, satoshis:9000, script:P2SHFund.toString()}, [publicKey1, publicKey2], 1)
                     .to(address, 8000)
-                    .sign(privateKey2);
+                    .sign([privateKey,privateKey2]);
 
                 console.log("tx2",tx2.serialize());
                 // ブロードキャストする。

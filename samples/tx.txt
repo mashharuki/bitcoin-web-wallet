@@ -1,0 +1,28 @@
+{
+    hash: '70fa1bccdd4e5e47adb59d7d803e8660b373029d876e0e7c2c329801091945a5',
+    version: 2,
+    inputs: [
+      {
+        prevTxId: '8211e4670a2d6c19cb514e1923029a441c5d9b878a770f27044115148b38609f',
+        outputIndex: 0,
+        sequenceNumber: 4294967295,
+        script: '483045022100d03bf9eed162ee56a069144816022984e453fb71393a6786c2b15741dea882f3022017e43d7fae97ef8f7c748c8b579742422fb2fdece7d322920c980e4ade5bc90f01210368a64cab36e30db70dd17c9b092c68b9e23ee8e95e8e23fe8e4c5ad46e1d2bb2',
+        scriptString: '72 0x3045022100d03bf9eed162ee56a069144816022984e453fb71393a6786c2b15741dea882f3022017e43d7fae97ef8f7c748c8b579742422fb2fdece7d322920c980e4ade5bc90f01 33 0x0368a64cab36e30db70dd17c9b092c68b9e23ee8e95e8e23fe8e4c5ad46e1d2bb2',
+        output: [Object]
+      }
+    ],
+    outputs: [
+      {
+        satoshis: 100,
+        script: '76a9146975e1d55899d3354174ab99e0feb353e21e26da88ac'
+      },
+      {
+        satoshis: 1426322,
+        script: '76a9146b125804b13c0353bc968220e0e703f5c10ac0fc88ac'
+      }
+    ],
+    nLockTime: 0,
+    changeScript: 'OP_DUP OP_HASH160 20 0x6b125804b13c0353bc968220e0e703f5c10ac0fc OP_EQUALVERIFY OP_CHECKSIG',
+    changeIndex: 1,
+    fee: 1000
+  }

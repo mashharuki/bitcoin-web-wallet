@@ -36,14 +36,15 @@ insight.getUnspentUtxos(changeAddress, (err, utxos) => {
     // utxoを出力する。
     // console.log(utxos);
     // スクリプトを生成する。
-    var script = new bitcore.Script('mqH6a8Ykc4iPJwp8jR7mnskWbG9i8rwk2D').toHex();
-    console.log('スプリクト：', script);
+    var script = new bitcore.Script.buildPublicKeyHashOut('mqH6a8Ykc4iPJwp8jR7mnskWbG9i8rwk2D');
+    // スクリプトを出力する。
+    console.log('スプリクト：', script.toString());
     // utxoからトランザクションハッシュ値、アウトプットトランザクション数、アドレス、スクリプト、金額情報を取得する。
     var utxo = {
       "txId" : utxos[0].txid,
       "outputIndex" : utxos[0].vout,
       "address" : sendAddress.toString(),
-      "script" :  "",
+      "script" :  script.toString(),
       "satoshis" : utxos[0].value
     };
     console.log(utxo);
